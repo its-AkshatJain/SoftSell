@@ -42,8 +42,8 @@ Before you can run the project, make sure you have the following installed on yo
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/softsell-assistant.git
-   cd softsell-assistant
+   git clone https://github.com/yourusername/softsell.git
+   cd frontend
    ```
 
 2. Install the dependencies:
@@ -64,7 +64,7 @@ Before you can run the project, make sure you have the following installed on yo
 4. Start the development server:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
 5. Open the app in your browser at `http://localhost:3000`.

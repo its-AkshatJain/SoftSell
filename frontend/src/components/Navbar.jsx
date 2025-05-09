@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
-import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
+import { FiMoon, FiSun, FiMenu, FiX, FiLogIn, FiUserPlus } from 'react-icons/fi';
 import { FaRegLightbulb } from 'react-icons/fa';
 
 export default function Navbar() {
@@ -73,7 +73,37 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
+          {/* Login Button - Desktop */}
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="/login"
+            className={`hidden md:flex items-center text-sm font-medium px-3 py-2 rounded transition-colors ${
+              darkMode 
+                ? 'text-blue-300 hover:text-white' 
+                : 'text-blue-600 hover:text-blue-800'
+            }`}
+          >
+            <FiLogIn className="mr-1" />
+            Log In
+          </motion.a>
+
+          {/* Sign Up Button - Desktop */}
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="/signup"
+            className={`hidden md:flex items-center text-sm font-medium px-4 py-2 rounded transition-colors ${
+              darkMode 
+                ? 'bg-blue-600 hover:bg-blue-500 text-white' 
+                : 'bg-blue-600 hover:bg-blue-700 text-white'
+            }`}
+          >
+            <FiUserPlus className="mr-1" />
+            Sign Up
+          </motion.a>
+          
           {/* Theme Toggle Button */}
           <motion.button
             whileHover={{ rotate: 180 }}
@@ -132,6 +162,35 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
+            
+            {/* Login & Sign Up - Mobile */}
+            <div className="mt-2 pt-2 border-t border-gray-700 flex flex-col space-y-2">
+              <a
+                href="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`flex items-center py-2 px-4 rounded-md ${
+                  darkMode 
+                    ? 'hover:bg-gray-800 text-blue-300' 
+                    : 'hover:bg-gray-100 text-blue-600'
+                }`}
+              >
+                <FiLogIn className="mr-2" />
+                Log In
+              </a>
+              
+              <a
+                href="/signup"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`flex items-center py-2 px-4 rounded-md ${
+                  darkMode 
+                    ? 'bg-blue-600 hover:bg-blue-500 text-white' 
+                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                }`}
+              >
+                <FiUserPlus className="mr-2" />
+                Sign Up
+              </a>
+            </div>
           </div>
         </motion.div>
       )}
